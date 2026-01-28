@@ -1,22 +1,10 @@
 const posts = [
   {
-    title: "Why the Good Length Is Dying in T20 Cricket",
+    title: "Scotland, Bangldesh, Pakistan and India fiasco in 2026 T20 World Cup",
     author: "Bharadhwaj",
     date: "Jan 26, 2026",
-    excerpt: "Batters are no longer waiting for errors — they’re creating them."
+    excerpt: "Politics playing spoilsport once again in cricket"
   },
-  {
-    title: "What Watching Rahul Dravid Taught Me About Time",
-    author: "Bharadhwaj",
-    date: "Jan 22, 2026",
-    excerpt: "Test cricket doesn’t reward speed. It rewards stubbornness."
-  },
-  {
-    title: "Bias in the Ball: How Narratives Shape Bowling Greatness",
-    author: "Bharadhwaj",
-    date: "Jan 18, 2026",
-    excerpt: "We judge bowlers by moments, not spells."
-  }
 ];
 
 const postList = document.getElementById("postList");
