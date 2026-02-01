@@ -9,13 +9,13 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   background: #fafafa;
   color: #111;
-  line-height: 1.7;
 }
 
 /* HEADER */
 .site-header {
   text-align: center; 
   background: #fff;
+  border-bottom: 3px solid #ffffff;
 }
 
 .site-title {
