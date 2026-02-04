@@ -1,50 +1,108 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  background: #fafafa;
-  color: #111;
-}
+/* =========================
+   FONT FACES
+========================= */
 
+/* Helvetica Neue — Header only */
 @font-face {
-  font-family: "HelveticaNeueBlack";
+  font-family: "HelveticaNeue";
   src: url("./fonts/HelveticaNeueBlack.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 
-/* HEADER */
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("./fonts/HelveticaNeueBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("./fonts/HelveticaNeueRoman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Roboto — Site default */
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background: #fafafa;
+  color: #111;
+  line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .site-header {
-  text-align: center; 
-  font-family: "HelveticaNeueBlack";
-  background: #000000;
-  border-bottom: 3px solid #000000;
+  text-align: center;
+  font-family: "HelveticaNeue", Arial, sans-serif;
+  background: #000;
 }
 
 .site-title {
-  border-top: 15px solid #000000;
-  color:#ffffff;
+  border-top: 5px solid #000;
+  color: #fff;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: -0.5px;
 }
 
 .site-tagline {
   color: #c0bfbf;
-  margin-top: 0.5rem;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
 }
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
+
 .site-nav {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  padding: 0.8rem;
-  background: #111;
+  padding: 0.4rem;
+  background: #000000;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .site-nav a {
@@ -53,14 +111,20 @@ body {
   font-size: 0.95rem;
 }
 
-/* CONTENT */
+/* =========================
+   CONTENT
+========================= */
+
 .content {
   max-width: 720px;
   margin: 2.5rem auto;
   padding: 0 1rem;
 }
 
-/* POSTS */
+/* =========================
+   POSTS
+========================= */
+
 .post {
   padding: 1.5rem 0;
   border-bottom: 1px solid #e0e0e0;
@@ -69,6 +133,7 @@ body {
 .post-title {
   font-size: 1.7rem;
   margin-bottom: 0.3rem;
+  font-weight: 700;
 }
 
 .post-meta {
@@ -82,10 +147,14 @@ body {
   color: #222;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 .site-footer {
   text-align: center;
   padding: 2rem 1rem;
   color: #666;
   font-size: 0.85rem;
+  font-family: "Roboto", Arial, sans-serif;
 }
