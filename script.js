@@ -20,28 +20,40 @@ function renderPosts(posts, query = "") {
 
   posts.forEach(post => {
     const titleMatch = post.title.toLowerCase().includes(query);
-    const excerptMatch = post.excerpt.toLowerCase().includes(query);
+    const subtitleMatch = post.subtitle.toLowerCase().includes(query);
 
-    if (query && !titleMatch && !excerptMatch) return;
+    // hide posts that don’t match search
+    if (query && !titleMatch && !subtitleMatch) return;
 
     const article = document.createElement("article");
     article.className = "post";
 
     article.innerHTML = `
+      <img
+        class="post-thumb"
+        src="${post.thumbnail}"
+        alt="${post.thumbnailAlt || post.title}"
+      />
+
       <h2 class="post-title">
         <a href="articles/${post.slug}.html">
           ${highlight(post.title, query)}
         </a>
       </h2>
-      <div class="post-meta">${formatDate(post.date)} · ${post.author}</div>
-      <p class="post-excerpt">
-        ${highlight(post.excerpt, query)}
+
+      <p class="post-subtitle">
+        ${highlight(post.subtitle, query)}
       </p>
+
+      <div class="post-meta">
+        ${formatDate(post.date)} · ${post.author}
+      </div>
     `;
 
     postList.appendChild(article);
   });
 }
+
 
 function highlight(text, query) {
   if (!query) return text;

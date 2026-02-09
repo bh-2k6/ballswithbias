@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><!-- ARTICLE TITLE --></title>
-
-  <!-- Main site styles -->
+  <title>{{ARTICLE_TITLE}} — Balls With Bias</title>
   <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
@@ -20,45 +18,43 @@
   <!-- NAV -->
   <nav class="site-nav">
     <a href="../index.html">Home</a>
-    <a href="../about.html">About</a>
+    <a href="#">About</a>
   </nav>
 
-  <!-- MAIN CONTENT -->
+  <!-- ARTICLE -->
   <main class="content">
 
-    <article class="post full-post">
+    <article class="article">
 
-      <!-- Article title -->
-      <h1 class="post-title">
-        <!-- ARTICLE TITLE -->
+      <!-- TITLE -->
+      <h1 class="article-title">
+        {{ARTICLE_TITLE}}
       </h1>
 
-      <!-- Meta info -->
-      <div class="post-meta">
-        <!--U January 27, 2026 · Bharadhwaj
+      <!-- SUBTITLE -->
+      <p class="article-subtitle">
+        {{ARTICLE_SUBTITLE}}
+      </p>
+
+      <!-- THUMBNAIL -->
+      <img
+        class="article-thumb"
+        src="../images/{{THUMBNAIL_FILENAME}}"
+        alt="{{THUMBNAIL_ALT}}"
+      />
+
+      <!-- META -->
+      <div class="article-meta">
+        {{ARTICLE_DATE}} · {{ARTICLE_AUTHOR}}
       </div>
 
-      <!-- Article body -->
-      <p>
-        <!-- Paragraph 1 -->
-      </p>
+      <!-- CONTENT -->
+      <div class="article-content">
 
-      <p>
-        <!-- Paragraph 2 -->
-      </p>
+        <!-- Write article content here -->
+        <!-- Use <p>, <h2>, <pre><code>, <blockquote>, etc. -->
 
-      <p>
-        <!-- Paragraph 3 -->
-      </p>
-
-      <!-- Optional subheading -->
-      <h2>
-        <!-- Subheading -->
-      </h2>
-
-      <p>
-        <!-- More content -->
-      </p>
+      </div>
 
     </article>
 
