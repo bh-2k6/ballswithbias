@@ -117,9 +117,9 @@ body {
 ========================= */
 
 .content {
-  max-width: 720px;
+  max-width: 1200px;
   margin: 2.5rem auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 /* =========================
@@ -127,10 +127,24 @@ body {
 ========================= */
 
 .post {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
   font-family: "HelveticaNeueBlack";
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.post:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
 
 .post-title {
   font-size: 1.7rem;
@@ -159,4 +173,16 @@ body {
   color: #666;
   font-size: 0.85rem;
   font-family: "Roboto", Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .post-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .post-list {
+    grid-template-columns: 1fr;
+  }
 }
