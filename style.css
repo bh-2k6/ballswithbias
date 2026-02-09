@@ -197,6 +197,24 @@ body {
   flex: 1;
 }
 
+/* SEARCH BAR */
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  display: block;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* HIGHLIGHT */
+.highlight {
+  background: yellow;
+  padding: 0 2px;
+}
+
 
 @media (max-width: 900px) {
   .post-list {
