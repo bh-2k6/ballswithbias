@@ -1,6 +1,15 @@
 /* =========================
    RESET
 ========================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -117,9 +126,9 @@ body {
 ========================= */
 
 .content {
-  max-width: 1200px;
-  margin: 2.5rem auto;
-  padding: 0 1.5rem;
+  max-width: 95vw;
+  margin: 1.1rem auto;
+  padding: 0 2rem;
 }
 
 /* =========================
@@ -174,6 +183,11 @@ body {
   font-size: 0.85rem;
   font-family: "Roboto", Arial, sans-serif;
 }
+
+.page-wrapper {
+  flex: 1;
+}
+
 
 @media (max-width: 900px) {
   .post-list {
