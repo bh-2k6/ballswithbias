@@ -23,7 +23,8 @@ body {
   text-align: center; 
   font-family: "HelveticaNeueBlack";
   background: #000000;
-  border-bottom: 3px solid #000000;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ffffff;
 }
 
 .site-title {
@@ -40,11 +41,12 @@ body {
 
 /* NAV */
 .site-nav {
+  font-family: "HelveticaNeueBlack";
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  padding: 0.8rem;
-  background: #111;
+  padding: 0.5rem;
+  background: #000000;
 }
 
 .site-nav a {
@@ -64,6 +66,7 @@ body {
 .post {
   padding: 1.5rem 0;
   border-bottom: 1px solid #e0e0e0;
+  font-family: "HelveticaNeueBlack";
 }
 
 .post-title {
