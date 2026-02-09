@@ -71,17 +71,9 @@ body {
 ========================= */
 
 .site-header {
-<<<<<<< HEAD
-  text-align: center; 
-  font-family: "HelveticaNeueBlack";
-  background: #000000;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ffffff;
-=======
   text-align: center;
   font-family: "HelveticaNeue", Arial, sans-serif;
   background: #000;
->>>>>>> 3c786d7a7847dd960d8cca11e220b2781578f0bd
 }
 
 .site-title {
@@ -109,14 +101,9 @@ body {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-<<<<<<< HEAD
-  padding: 0.5rem;
-  background: #000000;
-=======
   padding: 0.4rem;
   background: #000000;
   font-family: "Roboto", Arial, sans-serif;
->>>>>>> 3c786d7a7847dd960d8cca11e220b2781578f0bd
 }
 
 .site-nav a {
