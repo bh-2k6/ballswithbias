@@ -29,11 +29,6 @@ function renderPosts(posts, query = "") {
     article.className = "post";
 
     article.innerHTML = `
-      <img
-        class="post-thumb"
-        src="${post.thumbnail}"
-        alt="${post.thumbnailAlt || post.title}"
-      />
 
       <h2 class="post-title">
         <a href="articles/${post.slug}.html">
