@@ -208,22 +208,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-.site-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #666;
-  font-size: 0.85rem;
-  font-family: "Roboto", Arial, sans-serif;
-}
-
-.page-wrapper {
-  flex: 1;
-}
-
 /* SEARCH BAR */
 .search-bar {
   width: 100%;
