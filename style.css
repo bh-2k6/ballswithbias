@@ -56,9 +56,7 @@ body {
   font-style: normal;
 }
 
-/* =========================
-   BASE STYLES
-========================= */
+/* BASE STYLES */
 
 body {
   font-family: "Roboto", Arial, sans-serif;
@@ -67,9 +65,7 @@ body {
   line-height: 1.7;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .site-header {
   text-align: center;
@@ -93,9 +89,7 @@ body {
   text-transform: uppercase;
 }
 
-/* =========================
-   NAV
-========================= */
+/*NAV */
 
 .site-nav {
   font-family: "HelveticaNeueBlack";
@@ -129,9 +123,7 @@ body {
 }
 
 
-/* =========================
-   CONTENT
-========================= */
+/*  CONTENT */
 
 .content {
   max-width: 95vw;
@@ -139,9 +131,7 @@ body {
   padding: 0 2rem;
 }
 
-/* =========================
-   POSTS
-========================= */
+/* POSTS */
 
 .post {
   padding: 1.5rem;
@@ -240,9 +230,7 @@ body {
   }
 }
 
-/* =========================
-   REACTIONS
-========================= */
+/*REACTIONS */
 
 .reactions {
   margin-top: 3rem;

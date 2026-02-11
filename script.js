@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     HOME PAGE LOGIC
-  ========================= */
+  /*HOME PAGE LOGIC*/
 
   const postList = document.getElementById("postList");
   const searchInput = document.getElementById("searchInput");
@@ -66,9 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* =========================
-     READING TIME (ALL ARTICLES)
-  ========================= */
+  /*READING TIME (ALL ARTICLES) */
 
   const articleContent = document.querySelector(".article-content");
   if (articleContent) {
@@ -81,9 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       meta.innerHTML += ` · ${minutes} min read`;
     }
   }
-  /* =========================
-   REACTIONS (WITH TOGGLE)
-========================= */
+  /*REACTIONS (WITH TOGGLE) */
 
 const reactionContainer = document.querySelector(".reactions");
 
@@ -98,14 +92,10 @@ if (reactionContainer) {
     const reaction = button.dataset.reaction;
     const countKey = articleId + "-" + reaction;
 
-    // Get count
     let count = Number(localStorage.getItem(countKey)) || 0;
-
-    // Set UI count
     const countSpan = button.querySelector(".count");
     countSpan.textContent = count > 0 ? count : "";
 
-    // Mark active if user previously selected
     if (reaction === currentUserReaction) {
       button.classList.add("active");
     }
@@ -113,7 +103,6 @@ if (reactionContainer) {
     button.addEventListener("click", () => {
       const storedReaction = localStorage.getItem(userReactionKey);
 
-      // CASE 1: Clicking same reaction → remove it
       if (storedReaction === reaction) {
         count--;
         localStorage.setItem(countKey, count);
@@ -124,14 +113,12 @@ if (reactionContainer) {
         return;
       }
 
-      // CASE 2: Switching reactions
       if (storedReaction) {
         const oldKey = articleId + "-" + storedReaction;
         let oldCount = Number(localStorage.getItem(oldKey)) || 0;
         oldCount--;
         localStorage.setItem(oldKey, oldCount);
 
-        // Remove old active state
         const oldBtn = reactionContainer.querySelector(
           `[data-reaction="${storedReaction}"]`
         );
@@ -139,8 +126,7 @@ if (reactionContainer) {
         oldBtn.querySelector(".count").textContent =
           oldCount > 0 ? oldCount : "";
       }
-
-      // Add new reaction
+      
       count++;
       localStorage.setItem(countKey, count);
       localStorage.setItem(userReactionKey, reaction);
