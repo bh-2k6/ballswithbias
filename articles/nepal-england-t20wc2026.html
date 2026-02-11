@@ -27,7 +27,7 @@
   <!-- MAIN CONTENT -->
   <main class="content">
 
-    <article class="post full-post">
+    <div class="article-content">
 
       <!-- Article title -->
       <h1 class="post-title">
@@ -76,10 +76,37 @@
     </article>
 
   </main>
-  <!-- FOOTER -->
+  <div class="reactions">
+    <p class="reaction-title">What’s your take?</p>
+
+    <button class="reaction-btn" data-reaction="agree">
+      <span class="emoji">👍</span>
+      <span class="label">Agree</span>
+      <span class="count"></span>
+    </button>
+
+    <button class="reaction-btn" data-reaction="disagree">
+      <span class="emoji">👎</span>
+      <span class="label">Disagree</span>
+      <span class="count"></span>
+    </button>
+
+    <button class="reaction-btn" data-reaction="hot">
+      <span class="emoji">🔥</span>
+      <span class="label">Hot take</span>
+      <span class="count"></span>
+    </button>
+
+    <button class="reaction-btn" data-reaction="clown">
+      <span class="emoji">🤡</span>
+      <span class="label">Clown take</span>
+      <span class="count"></span>
+    </button>
+  </div>
+
   <footer class="site-footer">
     <p>© 2026 Balls with Bias · Biased Cricket Writing</p>
   </footer>
-
+  <script src="../script.js"></script>
 </body>
 </html>

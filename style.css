@@ -1,6 +1,3 @@
-/* =========================
-   RESET
-========================= */
 html, body {
   height: 100%;
 }
@@ -16,11 +13,6 @@ body {
   box-sizing: border-box;
 }
 
-/* =========================
-   FONT FACES
-========================= */
-
-/* Helvetica Neue — Header only */
 @font-face {
   font-family: "HelveticaNeue";
   src: url("./fonts/HelveticaNeueBlack.otf") format("opentype");
@@ -118,8 +110,24 @@ body {
 .site-nav a {
   color: #fff;
   text-decoration: none;
-  font-size: 0.95rem;
+  position: relative;
 }
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: #fff;
+  transition: width 0.2s ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
 
 /* =========================
    CONTENT
@@ -141,6 +149,7 @@ body {
   background: #fff;
   font-family: "HelveticaNeueBlack";
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 20px;
 }
 
 .post-title a {
@@ -225,6 +234,7 @@ body {
   font-size: 1rem;
   border: 1px solid #ccc;
   outline: none;
+  border-radius: 999px;
 }
 
 /* HIGHLIGHT */
@@ -244,4 +254,73 @@ body {
   .post-list {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================
+   REACTIONS
+========================= */
+
+.reactions {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.reaction-title {
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #333;
+}
+
+.reaction-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0.6rem 1rem;
+  margin: 0.4rem 0.5rem 0.4rem 0;
+
+  border: 1px solid #ddd;
+  border-radius: 999px;
+
+  background: #fff;
+  cursor: pointer;
+
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 0.9rem;
+
+  transition: all 0.2s ease;
+}
+
+.reaction-btn:hover {
+  border-color: #111;
+  transform: translateY(-2px);
+}
+
+.reaction-btn:active {
+  transform: scale(0.96);
+}
+
+.reaction-btn .emoji {
+  font-size: 1rem;
+}
+
+.reaction-btn .count {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.85rem;
+}
+
+/* Selected state */
+.reaction-btn.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reaction-btn.active .count {
+  color: #fff;
 }
