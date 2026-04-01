@@ -457,3 +457,26 @@ body {
   margin-top: 10px;
   font-size: 14px;
 }
+
+.article-search {
+  margin-bottom: 30px;
+}
+
+.article-search .post-list {
+  margin-top: 10px;
+}
+
+.search-result {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+  font-size: 16px;
+}
+
+.search-result a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-result:hover {
+  background: #1a1a1a;
+}

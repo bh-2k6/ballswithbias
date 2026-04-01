@@ -1,177 +1,103 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /*HOME PAGE LOGIC*/
-
-  const postList = document.getElementById("postList");
   const searchInput = document.getElementById("searchInput");
+  const postList = document.getElementById("postList");
+  const articleContent = document.querySelector(".article-content");
 
-  if (postList && searchInput) {
-    let allPosts = [];
+  const isArticlePage = window.location.pathname.includes("/articles/");
 
-    fetch("data/posts.json")
-      .then(res => res.json())
-      .then(posts => {
-        allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        renderPosts(allPosts);
-      });
+  if (!searchInput) return;
+
+  // =========================
+  // ARTICLE PAGE SEARCH (LOCAL SEARCH)
+  // =========================
+  if (isArticlePage && articleContent) {
+
+    const originalHTML = articleContent.innerHTML;
 
     searchInput.addEventListener("input", () => {
-      const query = searchInput.value.toLowerCase();
-      renderPosts(allPosts, query);
-    });
+      const query = searchInput.value.trim();
 
-    function renderPosts(posts, query = "") {
-      postList.innerHTML = "";
-
-      posts.forEach(post => {
-        const titleMatch = post.title.toLowerCase().includes(query);
-        const subtitleMatch = post.subtitle.toLowerCase().includes(query);
-
-        if (query && !titleMatch && !subtitleMatch) return;
-
-        const article = document.createElement("article");
-        article.className = "post";
-
-        article.innerHTML = `
-          <h2 class="post-title">
-            <a href="articles/${post.slug}.html">
-              ${highlight(post.title, query)}
-            </a>
-          </h2>
-
-          <p class="post-subtitle">
-            ${highlight(post.subtitle, query)}
-          </p>
-
-          <div class="post-meta">
-            ${formatDate(post.date)} · ${post.author}
-          </div>
-        `;
-
-        postList.appendChild(article);
-      });
-    }
-
-    function highlight(text, query) {
-      if (!query) return text;
-      const regex = new RegExp(`(${query})`, "gi");
-      return text.replace(regex, `<span class="highlight">$1</span>`);
-    }
-
-    function formatDate(dateString) {
-      const options = { day: "2-digit", month: "short", year: "numeric" };
-      return new Date(dateString).toLocaleDateString("en-GB", options);
-    }
-  }
-
-  /*READING TIME (ALL ARTICLES) */
-
-  const articleContent = document.querySelector(".article-content");
-  if (articleContent) {
-    const text = articleContent.innerText;
-    const words = text.trim().split(/\s+/).length;
-    const minutes = Math.max(1, Math.ceil(words / 200));
-
-    const meta = document.querySelector(".post-meta, .article-meta");
-    if (meta) {
-      meta.innerHTML += ` · ${minutes} min read`;
-    }
-  }
-  /*REACTIONS (WITH TOGGLE) */
-
-const reactionContainer = document.querySelector(".reactions");
-
-if (reactionContainer) {
-  const articleId = location.pathname;
-  const buttons = reactionContainer.querySelectorAll(".reaction-btn");
-
-  const userReactionKey = articleId + "-user-reaction";
-  const currentUserReaction = localStorage.getItem(userReactionKey);
-
-  buttons.forEach(button => {
-    const reaction = button.dataset.reaction;
-    const countKey = articleId + "-" + reaction;
-
-    let count = Number(localStorage.getItem(countKey)) || 0;
-    const countSpan = button.querySelector(".count");
-    countSpan.textContent = count > 0 ? count : "";
-
-    if (reaction === currentUserReaction) {
-      button.classList.add("active");
-    }
-
-    button.addEventListener("click", () => {
-      const storedReaction = localStorage.getItem(userReactionKey);
-
-      if (storedReaction === reaction) {
-        count--;
-        localStorage.setItem(countKey, count);
-        localStorage.removeItem(userReactionKey);
-
-        button.classList.remove("active");
-        countSpan.textContent = count > 0 ? count : "";
+      if (!query) {
+        articleContent.innerHTML = originalHTML;
         return;
       }
 
-      if (storedReaction) {
-        const oldKey = articleId + "-" + storedReaction;
-        let oldCount = Number(localStorage.getItem(oldKey)) || 0;
-        oldCount--;
-        localStorage.setItem(oldKey, oldCount);
+      const regex = new RegExp(`(${query})`, "gi");
 
-        const oldBtn = reactionContainer.querySelector(
-          `[data-reaction="${storedReaction}"]`
-        );
-        oldBtn.classList.remove("active");
-        oldBtn.querySelector(".count").textContent =
-          oldCount > 0 ? oldCount : "";
-      }
-      
-      count++;
-      localStorage.setItem(countKey, count);
-      localStorage.setItem(userReactionKey, reaction);
-
-      button.classList.add("active");
-      countSpan.textContent = count;
+      articleContent.innerHTML = originalHTML.replace(
+        regex,
+        `<span class="highlight">$1</span>`
+      );
     });
+
+    return;
+  }
+
+  // =========================
+  // HOME PAGE SEARCH (GLOBAL)
+  // =========================
+
+  if (!postList) return;
+
+  let allPosts = [];
+
+  fetch("data/posts.json")
+    .then(res => res.json())
+    .then(posts => {
+      allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      renderPosts(allPosts);
+    })
+    .catch(err => {
+      console.error("Failed to load posts:", err);
+    });
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    renderPosts(allPosts, query);
   });
-}
-// COMMENTS SYSTEM (local only)
-const commentForm = document.getElementById("comment-form");
-const commentsList = document.getElementById("comments-list");
 
-commentForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+  function renderPosts(posts, query = "") {
+    postList.innerHTML = "";
 
-  const name = document.getElementById("name").value;
-  const comment = document.getElementById("comment").value;
+    posts.forEach(post => {
+      const titleMatch = post.title.toLowerCase().includes(query);
+      const subtitleMatch = post.subtitle.toLowerCase().includes(query);
 
-  const commentEl = document.createElement("div");
-  commentEl.classList.add("comment");
+      if (query && !titleMatch && !subtitleMatch) return;
 
-  commentEl.innerHTML = `
-    <strong>${name}</strong>
-    <p>${comment}</p>
-  `;
+      const article = document.createElement("article");
+      article.className = "post";
 
-  commentsList.prepend(commentEl);
+      article.innerHTML = `
+        <h2 class="post-title">
+          <a href="articles/${post.slug}.html">
+            ${highlight(post.title, query)}
+          </a>
+        </h2>
 
-  commentForm.reset();
-});
+        <p class="post-subtitle">
+          ${highlight(post.subtitle, query)}
+        </p>
 
+        <div class="post-meta">
+          ${formatDate(post.date)} · ${post.author}
+        </div>
+      `;
 
-// NEWSLETTER (frontend only)
-const newsletterForm = document.getElementById("newsletter-form");
-const message = document.getElementById("newsletter-message");
+      postList.appendChild(article);
+    });
+  }
 
-newsletterForm.addEventListener("submit", function (e) {
-  e.preventDefault();
+  function highlight(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, "gi");
+    return text.replace(regex, `<span class="highlight">$1</span>`);
+  }
 
-  const email = document.getElementById("email").value;
+  function formatDate(dateString) {
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-GB", options);
+  }
 
-  message.textContent = "Subscribed successfully!";
-  message.style.color = "green";
-
-  newsletterForm.reset();
-});
 });
