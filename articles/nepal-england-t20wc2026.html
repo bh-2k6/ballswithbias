@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
 
   <link rel="stylesheet" href="../style.css" />
 </head>
+
 <body>
 
   <header class="site-header">
@@ -21,13 +23,6 @@
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
     </div>
-
-    <button class="search-toggle" aria-label="Search">
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2" fill="none"/>
-        <line x1="16" y1="16" x2="21" y2="21" stroke="white" stroke-width="2"/>
-      </svg>
-    </button>
   </nav>
 
   <main class="content">
@@ -54,14 +49,22 @@
       </div>
 
       <p>
-        Nepal have improved a lot in cricket and have are perhaps the second nation after Afghanistan to have followed a good blueprint for it.
-        They played against bigger teams like West Indies. They also have started their own leagues with 4 overseas player per team which really
-        helped them to get used to higher quality cricket. The Asia Cup as well as the Emerging Asia Cup plays a part in this because they get to play against the top teams
-        and the second XI of the top teams, which are quite often better than them although I'm not sure if that is the case anymore because of the show they put up against England.
-        They would've hardly faced anybody as wiley as Adil Rashid who can turn the ball sqaure and is a really experienced bowler as well as faced someone as lethal as Jofra Archer
-        who at his best is one of the scariest bowlers to face in the cricketing world at the moment. Yet they were able to do well against both of them. This provides a good pathway to a lot of other
-        asian teams like UAE, Oman, etc. also with the an european league backed by Netherlands, Scotland and Ireland popping up and I'm pretty sure that Zimbabwe and Namibia might have a few teams in the SA20 
-        in the nearby future forming an African league which allows them to play higher quality cricket and as T10 becomes less abt fixing as more and more players are being exposed with Aaron Jones being the recent casualty, 
+        Nepal have improved a lot in cricket and have are perhaps the second nation after Afghanistan to have followed a
+        good blueprint for it.
+        They played against bigger teams like West Indies. They also have started their own leagues with 4 overseas
+        player per team which really
+        helped them to get used to higher quality cricket. The Asia Cup as well as the Emerging Asia Cup plays a part in
+        this because they get to play against the top teams
+        and the second XI of the top teams, which are quite often better than them although I'm not sure if that is the
+        case anymore because of the show they put up against England.
+        They would've hardly faced anybody as wiley as Adil Rashid who can turn the ball sqaure and is a really
+        experienced bowler as well as faced someone as lethal as Jofra Archer
+        who at his best is one of the scariest bowlers to face in the cricketing world at the moment. Yet they were able
+        to do well against both of them. This provides a good pathway to a lot of other
+        asian teams like UAE, Oman, etc. also with the an european league backed by Netherlands, Scotland and Ireland
+        popping up and I'm pretty sure that Zimbabwe and Namibia might have a few teams in the SA20
+        in the nearby future forming an African league which allows them to play higher quality cricket and as T10
+        becomes less abt fixing as more and more players are being exposed with Aaron Jones being the recent casualty,
         the pathway of such teams to have access to higher quality cricket is only going to get better and better.
       </p>
 
@@ -121,6 +124,37 @@
     </div>
 
   </div>
+  <!-- COMMENTS SECTION -->
+  <div class="comments-section">
+
+    <h2>Comments</h2>
+
+    <form id="comment-form" class="comment-form">
+      <input type="text" id="name" placeholder="Your name" required />
+      <textarea id="comment" placeholder="Write your comment..." required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+
+    <div id="comments-list" class="comments-list"></div>
+
+  </div>
+
+
+  <!-- NEWSLETTER SECTION -->
+  <div class="newsletter-section">
+
+    <h2>Subscribe to our Newsletter</h2>
+    <p>Get brutally honest cricket takes straight to your inbox.</p>
+
+    <form id="newsletter-form" class="newsletter-form">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <p id="newsletter-message"></p>
+
+  </div>
   <script src="../script.js"></script>
 </body>
+
 </html>

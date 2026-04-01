@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balls With Bias — Unapologetically Biased</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <div class="page-wrapper">
@@ -26,18 +28,43 @@
 
 
     <main class="content">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search articles…"
-        class="search-bar"
-      />
+      <input type="text" id="searchInput" placeholder="Search articles…" class="search-bar" />
       <section class="post-list" id="postList">
       </section>
     </main>
 
   </div>
+  <!-- COMMENTS SECTION -->
+  <div class="comments-section">
 
+    <h2>Comments</h2>
+
+    <form id="comment-form" class="comment-form">
+      <input type="text" id="name" placeholder="Your name" required />
+      <textarea id="comment" placeholder="Write your comment..." required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+
+    <div id="comments-list" class="comments-list"></div>
+
+  </div>
+
+
+  <!-- NEWSLETTER SECTION -->
+  <div class="newsletter-section">
+
+    <h2>Subscribe to our Newsletter</h2>
+    <p>Get brutally honest cricket takes straight to your inbox.</p>
+
+    <form id="newsletter-form" class="newsletter-form">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+
+    <p id="newsletter-message"></p>
+
+  </div>
   <script src="script.js"></script>
 </body>
+
 </html>

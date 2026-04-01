@@ -136,5 +136,42 @@ if (reactionContainer) {
     });
   });
 }
+// COMMENTS SYSTEM (local only)
+const commentForm = document.getElementById("comment-form");
+const commentsList = document.getElementById("comments-list");
 
+commentForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const comment = document.getElementById("comment").value;
+
+  const commentEl = document.createElement("div");
+  commentEl.classList.add("comment");
+
+  commentEl.innerHTML = `
+    <strong>${name}</strong>
+    <p>${comment}</p>
+  `;
+
+  commentsList.prepend(commentEl);
+
+  commentForm.reset();
+});
+
+
+// NEWSLETTER (frontend only)
+const newsletterForm = document.getElementById("newsletter-form");
+const message = document.getElementById("newsletter-message");
+
+newsletterForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+
+  message.textContent = "Subscribed successfully!";
+  message.style.color = "green";
+
+  newsletterForm.reset();
+});
 });
